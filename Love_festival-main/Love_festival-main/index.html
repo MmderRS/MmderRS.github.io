@@ -1,193 +1,41 @@
-
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1.0,maximum-scale=1.0"
-    />
-    <title>ZHANGYANAN</title>
-    <style>
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: black;
-        user-select: none;
-        margin: 0;
-      }
-      .city {
-        width: 100%;
-        position: fixed;
-        bottom: 165px;
-        z-index: 100999;
-      }
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日快乐 🎂</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="fireworks"></canvas>
 
-      .city img {
-        width: 100%;
-      }
-
-      audio {
-        opacity: 0;
-      }
-      .shape {
-        z-index: 9999 !important;
-      }
-      /* 隐藏烟花 */
-      .fireworks {
-        display: none;
-      }
-    </style>
-    <link rel="stylesheet" href="css/site.min.css" />
-  </head>
-
-  <body>
-    <!-- 开场白 -->
-    <div class="prologue">
-      <canvas class="canvas"></canvas>
-
-      <div class="help">?</div>
-
-      <div class="ui">
-        <input class="ui-input" type="text" />
-        <span class="ui-return">↵</span>
-      </div>
-
-      <div class="overlay">
-        <div class="tabs">
-          <div class="tabs-labels">
-            <span class="tabs-label">Commands</span
-            ><span class="tabs-label">Info</span
-            ><span class="tabs-label">Share</span>
-          </div>
-
-          <div class="tabs-panels">
-            <ul class="tabs-panel commands">
-              <li class="commands-item">
-                <span class="commands-item-title">Text</span
-                ><span class="commands-item-info" data-demo="Hello :)"
-                  >Type anything</span
-                ><span class="commands-item-action">Demo</span>
-              </li>
-              <li class="commands-item">
-                <span class="commands-item-title">Countdown</span
-                ><span class="commands-item-info" data-demo="#countdown 10"
-                  >#countdown<span class="commands-item-mode"
-                    >number</span
-                  ></span
-                ><span class="commands-item-action">Demo</span>
-              </li>
-              <li class="commands-item">
-                <span class="commands-item-title">Icon</span
-                ><span class="commands-item-info" data-demo="#icon thumbs-up"
-                  >#icon<span class="commands-item-mode">name</span>&nbsp;(using
-                  <a
-                    href="https://fortawesome.github.io/Font-Awesome/#icons-new"
-                    target="_blank"
-                    >Font Awesome</a
-                  >)</span
-                ><span class="commands-item-action">Demo</span>
-              </li>
-              <li class="commands-item">
-                <span class="commands-item-title">Time</span
-                ><span class="commands-item-info" data-demo="#time">#time</span
-                ><span class="commands-item-action">Demo</span>
-              </li>
-              <li class="commands-item">
-                <span class="commands-item-title">Rectangle</span
-                ><span class="commands-item-info" data-demo="#rectangle 30x15"
-                  >#rectangle<span class="commands-item-mode"
-                    >width x height</span
-                  ></span
-                ><span class="commands-item-action">Demo</span>
-              </li>
-              <li class="commands-item">
-                <span class="commands-item-title">Circle</span
-                ><span class="commands-item-info" data-demo="#circle 25"
-                  >#circle<span class="commands-item-mode">diameter</span></span
-                ><span class="commands-item-action">Demo</span>
-              </li>
-
-              <li class="commands-item commands-item--gap">
-                <span class="commands-item-title">Animate</span
-                ><span
-                  class="commands-item-info"
-                  data-demo="The time is|#time|#countdown 3|#icon thumbs-up"
-                  ><span class="commands-item-mode">command1</span>&nbsp;|<span
-                    class="commands-item-mode"
-                    >command2</span
-                  ></span
-                >
-                <span class="commands-item-action">Demo</span>
-              </li>
-            </ul>
-          </div>
+    <div class="birthday-content">
+        <div class="cake-wrap">
+            <div class="cake">
+                <div class="candles">
+                    <div class="candle"><div class="flame"></div></div>
+                    <div class="candle"><div class="flame"></div></div>
+                    <div class="candle"><div class="flame"></div></div>
+                </div>
+                <div class="cake-top"></div>
+                <div class="cake-mid"></div>
+                <div class="cake-bot"></div>
+            </div>
         </div>
-      </div>
+        <h1 class="title">生日快乐</h1>
+        <p class="age">🎉 22 岁 🎉</p>
+        <p class="subtitle">愿你的每一天都像今天一样闪耀</p>
+        <p class="hint">点击任意位置放烟花 ✨</p>
     </div>
-    <!-- 烟花 -->
-    <div class="fireworks">
-      <div class="star comet"></div>
-      <script src="js/index.js"></script>
-      <!--烟花部分-->
-      <canvas
-        id="cas"
-        style="background-color: rgba(0, 5, 24, 1); z-index: 9999"
-      >
-        浏览器不支持canvas
-      </canvas>
-      <!-- 城市背景 -->
-      <div class="city">
-        <img src="img/city.png" alt="" />
-      </div>
-      <img src="img/moon.png" alt="" id="moon" style="visibility: hidden" />
-      <div style="display: none">
-        <div class="shape">💘2022</div>
-        <div class="shape">茫茫人海中🐋</div>
-        <div class="shape"><img src="./assets/img/01.png" alt="" /></div>
-        <div class="shape">相识了你✨ </div>   
-        <div class="shape">是一种缘份</div>
-        <div class="shape">只希望用我的真诚</div>
-        <div class="shape">好喜欢你💖💖💖</div>
-        <div class="shape">🎈🎈🎈🎈</div>
-        <div class="shape"><img src="./assets/img/01.png" alt="" /></div>
-        <div class="shape">换取你的真情</div>
-        <div class="shape"><img src="./assets/img/02.png" alt="" /></div>
-        <div class="shape">💘💘💘</div>
-        <div class="shape">🎏🎏🎏🎏</div>
-        <div class="shape"><img src="./assets/img/03.png" alt="" /></div>
-        <div class="shape">换取你的真情🎉</div>
-        <div class="shape"><img src="./assets/img/04.png" alt="" /></div>
-        <div class="shape">🎄🎄🎄</div>
-        <div class="shape">💘💘💘</div>
-        <div class="shape"><img src="./assets/img/05.png" alt="" /></div>
-        <div class="shape">圣诞节快乐🎄🎄🎄🎄</div>
-        <div class="shape"><img src="./assets/img/06.png" alt="" /></div>
-        <div class="shape">💘💘💘</div>
-        <div class="shape"><img src="./assets/img/07.png" alt="" /></div>  
-      </div>
-      <!--音乐部分/可替换-->
-    <!--  <audio autoplay loop id="music">
-        <source src="mp3/xinnian.mp3" />
-      </audio> -->
-      <iframe
-        id="iframMusic"
-        allow="autoplay"
-        style="display: none"
-        src="mp3/xinnian.mp3"
-      ></iframe>
-    </div>
-    <!-- 烟花js内容S -->
-    <script src="jquery.min.js"></script>
-    <script src="fire.js"></script>
-    <script src="talk.js"></script>
-    <!-- 烟花js内容E -->
 
-    <!-- 开场文字 S -->
-    <script src="js/shape-shifter.js"></script>
-    <!-- 开场文字 E -->
-  </body>
+    <div class="balloons">
+        <div class="balloon b1">🎈</div>
+        <div class="balloon b2">🎈</div>
+        <div class="balloon b3">🎈</div>
+        <div class="balloon b4">🎈</div>
+        <div class="balloon b5">🎈</div>
+    </div>
+
+    <script src="fireworks.js"></script>
+</body>
 </html>
